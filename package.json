@@ -1,0 +1,36 @@
+{
+  "name": "time-events-viewer",
+  "version": "0.0.1",
+  "description": "View Javascript's timeouts and intervals collection",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bargoldi/time-events-viewer.git"
+  },
+  "keywords": [
+    "time",
+    "events",
+    "timing",
+    "events",
+    "timeout",
+    "interval",
+    "timer-events-viewer",
+    "view-timeouts",
+    "view-intervals",
+    "timeout-collection",
+    "interval-collection"
+  ],
+  "author": "Ziv Polack and Bar Goldinfeld",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bargoldi/time-events-viewer/issues"
+  },
+  "homepage": "https://github.com/bargoldi/time-events-viewer#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "typescript": "^2.2.1"
+  }
+}
