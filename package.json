@@ -1,7 +1,7 @@
 {
   "name": "time-events-manager",
   "version": "0.0.1",
-  "description": "View Javascript's timeouts and intervals collection",
+  "description": "Manage Javascript's timeouts and intervals collection",
   "main": "dist/main.min.js",
   "typings": "dist/main.d.ts",
   "scripts": {
@@ -20,7 +20,9 @@
     "interval",
     "timer-events-manager",
     "view-timeouts",
+    "manage-timeouts",
     "view-intervals",
+    "manage-intervals",
     "timeout-collection",
     "interval-collection"
   ],
