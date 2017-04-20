@@ -1,15 +1,15 @@
 {
-  "name": "time-events-viewer",
+  "name": "time-events-manager",
   "version": "0.0.1",
   "description": "View Javascript's timeouts and intervals collection",
   "main": "dist/main.min.js",
   "typings": "dist/main.d.ts",
   "scripts": {
-    "build": "webpack || echo not ok"
+    "build": "tsc && webpack || echo not ok"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bargoldi/time-events-viewer.git"
+    "url": "git+https://github.com/bargoldi/time-events-manager.git"
   },
   "keywords": [
     "time",
@@ -18,7 +18,7 @@
     "events",
     "timeout",
     "interval",
-    "timer-events-viewer",
+    "timer-events-manager",
     "view-timeouts",
     "view-intervals",
     "timeout-collection",
@@ -27,9 +27,9 @@
   "author": "Ziv Polack and Bar Goldinfeld",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/bargoldi/time-events-viewer/issues"
+    "url": "https://github.com/bargoldi/time-events-manager/issues"
   },
-  "homepage": "https://github.com/bargoldi/time-events-viewer#readme",
+  "homepage": "https://github.com/bargoldi/time-events-manager#readme",
   "devDependencies": {
     "copy": "^0.3.0",
     "dts-bundle": "^0.7.2",

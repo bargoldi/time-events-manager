@@ -1,0 +1,11 @@
+.idea/
+.gitignore
+.npmignore
+tsconfig.json
+webpack.config.js
+node_modules/
+
+# ignore the .ts files
+*.ts
+# include the .d.ts files
+!*.d.ts

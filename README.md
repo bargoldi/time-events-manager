@@ -1,2 +1,2 @@
-# time-events-viewer
+# time-events-manager
 View Javascript's timeouts and intervals collection
