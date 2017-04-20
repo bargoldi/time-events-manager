@@ -5,7 +5,7 @@ export class TimeoutCollection {
 	private _timeoutCollection: Timeout[];
 
 	public add(handler: any, timeout?: any, ...args: any[]) {
-		let id = originalSetTimeout(handler, timeout, args);
+		let id = originalSetTimeout.apply(window,[handler, timeout, args]);
 		this._timeoutCollection.push({id, handler, timeout, arguments: args});
 
 		return id;
