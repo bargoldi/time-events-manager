@@ -18,7 +18,7 @@ export class TimeoutCollection {
 			this._timeoutCollection.splice(timeoutIndex, 1);
 		}
 
-		originalClearTimeout(id);
+		originalClearTimeout.apply(window, [id]);
 	}
 
 	public get(index: number): Timeout {

@@ -18,7 +18,7 @@ export class IntervalCollection {
 			this._intervalCollection.splice(intervalIndex, 1);
 		}
 
-		originalClearInterval(id);
+		originalClearInterval.apply(window, [id]);
 	}
 
 	public get(index: number): Interval {
