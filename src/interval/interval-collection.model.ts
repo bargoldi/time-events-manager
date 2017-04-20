@@ -5,14 +5,14 @@ export class IntervalCollection {
 	private _intervalCollection: Interval[];
 
 	public add(handler: any, timeout?: any, ...args: any[]) {
-		let id = originalSetInterval(handler, timeout, args);
+		let id = originalSetInterval.apply(window, [handler, timeout, args]);
 		this._intervalCollection.push({id, handler, timeout, arguments: args});
 
 		return id;
 	}
 
 	public remove(id: number): void {
-		let intervalIndex = this._getIntervalIndex(id);
+		let intervalIndex = this._getIntervalIndexById(id);
 
 		if (intervalIndex !== -1) {
 			this._intervalCollection.splice(intervalIndex, 1);
@@ -21,8 +21,16 @@ export class IntervalCollection {
 		originalClearInterval(id);
 	}
 
-	public get(): Interval[] {
+	public get(index: number): Interval {
+		return this._intervalCollection[index];
+	}
+
+	public getAll(): Interval[] {
 		return this._intervalCollection;
+	}
+
+	public getById(id: number): Interval {
+		return this._intervalCollection[this._getIntervalIndexById(id)];
 	}
 
 	public clearAll() {
@@ -31,8 +39,8 @@ export class IntervalCollection {
 		});
 	}
 
-	private _getIntervalIndex(intervalId: number): number {
-		for (let i = 0; i < this._intervalCollection.length, i++;) {
+	private _getIntervalIndexById(intervalId: number): number {
+		for (let i = 0; i < this._intervalCollection.length; i++) {
 			if (this._intervalCollection[i].id === intervalId) {
 				return i;
 			}
@@ -41,4 +49,3 @@ export class IntervalCollection {
 		return -1;
 	}
 }
-
