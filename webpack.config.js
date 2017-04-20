@@ -24,7 +24,8 @@ module.exports = {
 
     output: {
         filename: './dist/main.min.js',
-        libraryTarget: 'umd'
+        libraryTarget: 'umd',
+        sourceMapFilename: './dist/main.min.js.map'
     },
 
     // Currently we need to add '.ts' to the resolve.extensions array.
@@ -45,7 +46,9 @@ module.exports = {
         ]
     },
     plugins: [
-        new webpack.optimize.UglifyJsPlugin(),
+        new webpack.optimize.UglifyJsPlugin({
+            sourceMap:true
+        }),
         new UnminifiedWebpackPlugin({
             postfix: ''
         }),
