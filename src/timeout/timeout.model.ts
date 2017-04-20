@@ -1,4 +1,4 @@
-export interface Timeout {
+export abstract class Timeout {
     id: number;
     handler: Function;
     timeout: number;
