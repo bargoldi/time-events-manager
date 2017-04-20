@@ -4,15 +4,17 @@ const
     copy = require('copy'),
     path = require('path'),
     dts = require('dts-bundle');
+    UnminifiedWebpackPlugin = require('unminified-webpack-plugin');
 
-function percentage_handler(percentage, msg) {
-    if (0 === percentage) {
+
+function percentage_handler(percentage) {
+    if (percentage === 0) {
         console.log('Build started... Good luck!');
-    } else if (1 === percentage) {
+    } else if (percentage === 1) {
         dts.bundle({
             name: 'time-events-manager',
             main: './src/main.d.ts',
-            out: './dist/main.d.ts'
+            out: '../dist/main.d.ts'
         });
     }
 }
@@ -21,7 +23,7 @@ module.exports = {
     entry: './src/main.ts',
 
     output: {
-        filename: './dist/main.js',
+        filename: './dist/main.min.js',
         libraryTarget: 'umd'
     },
 
@@ -43,6 +45,10 @@ module.exports = {
         ]
     },
     plugins: [
+        new webpack.optimize.UglifyJsPlugin(),
+        new UnminifiedWebpackPlugin({
+            postfix: ''
+        }),
         new webpack.ProgressPlugin(percentage_handler)
     ]
 };

@@ -2,8 +2,8 @@
   "name": "time-events-viewer",
   "version": "0.0.1",
   "description": "View Javascript's timeouts and intervals collection",
-  "main": "dist/time-events-manager.min.js",
-  "typings": "src/main.d.ts",
+  "main": "dist/main.min.js",
+  "typings": "dist/main.d.ts",
   "scripts": {
     "build": "webpack || echo not ok"
   },
@@ -31,8 +31,6 @@
   },
   "homepage": "https://github.com/bargoldi/time-events-viewer#readme",
   "devDependencies": {
-    "@types/node": "^7.0.13",
-    "awesome-typescript-loader": "2.2.1",
     "copy": "^0.3.0",
     "dts-bundle": "^0.7.2",
     "fs-extra": "^2.1.2",
@@ -44,6 +42,8 @@
     "gulp-typescript": "^3.1.6",
     "ts-loader": "^2.0.3",
     "typescript": "2.0.0",
+    "uglifyjs-webpack-plugin": "^0.4.3",
+    "unminified-webpack-plugin": "^1.2.0",
     "webpack": "^2.4.1"
   }
 }
