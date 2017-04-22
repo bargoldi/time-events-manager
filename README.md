@@ -5,6 +5,7 @@ View and Manage Javascript's timeout and interval collections
 
 ```$ npm install time-events-manager --save```
 
+
 # Usage
 
 ```typescript

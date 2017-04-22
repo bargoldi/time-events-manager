@@ -1,7 +1,7 @@
 {
   "name": "time-events-manager",
-  "version": "0.0.1",
-  "description": "Manage Javascript's timeouts and intervals collection",
+  "version": "0.0.2",
+  "description": "View and Manage Javascript's timeout and interval collections",
   "main": "dist/main.min.js",
   "typings": "dist/main.d.ts",
   "scripts": {
@@ -12,6 +12,7 @@
     "url": "git+https://github.com/bargoldi/time-events-manager.git"
   },
   "keywords": [
+    "javascript",
     "time",
     "events",
     "timing",
@@ -20,8 +21,10 @@
     "interval",
     "timer-events-manager",
     "view-timeouts",
+    "javascript-view-timeouts",
     "manage-timeouts",
     "view-intervals",
+    "javascript-view-intervals",
     "manage-intervals",
     "timeout-collection",
     "interval-collection"
