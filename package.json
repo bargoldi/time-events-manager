@@ -1,6 +1,6 @@
 {
   "name": "time-events-manager",
-  "version": "0.0.2",
+  "version": "0.0.1",
   "description": "View and Manage Javascript's timeout and interval collections",
   "main": "dist/main.min.js",
   "typings": "dist/main.d.ts",
