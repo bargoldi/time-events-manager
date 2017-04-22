@@ -1,5 +1,5 @@
 # time-events-manager
-Manage Javascript's timeouts and intervals collection
+View and Manage Javascript's timeout and interval collections
 
 # Installation
 
@@ -8,19 +8,40 @@ Manage Javascript's timeouts and intervals collection
 # Usage
 
 ```typescript
-// Setting some timeout
-setTimeout(()=>{
-    console.log('Do something');
-}, 5000); 
 
-timeoutCollection.get(0) // Will return the timeoutCollection with which you will work.
-                         // Currently, the collection will consist of one timeout only
-```
+// creating a timeout
 
-Basically, you should inject the library script from the place you would like the collection to work.
+function myFunc(){
+    console.log("Hello world");
+}
+
+let myTimeoutId = setTimeout(myFunc, 5000); 
+
+// Managing timeouts via timeoutCollection object
+
+timeoutCollection.get(0);
+timeoutCollection.getById(myTimeoutId); //Both returning the timeout object created
+
+timeCollection.removeById(myTimeoutId);
+timeCollection.getAll(); // []
+
+// creating an inerval
+
+let myIntervalId = setInterval(myFunc, 1000); 
+
+// Managing intervals via intervalCollection object
+
+intervalCollection.get(0);
+intervalCollection.getById(myIntervalId); //Both returning the interval object created
+
+intervalCollection.removeById(myIntervalId);
+intervalCollection.getAll(); // []
+
+
+Basically, you should inject the library script from in place you would like the collection to work on.
 
 # Why?
 
-JavaScript won't expose us some object or array to watch all of our current `time-events`.
-This library exposes all the timeouts and intervals in your current page. In addition, it makes
+JavaScript won't expose us a simple object or array to view and manage all of our current `time-events`.
+This library exposes the timeouts and intervals in your current page. In addition, it makes
 it possible to manage those `time-events` in `run-time`.
