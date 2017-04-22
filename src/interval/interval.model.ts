@@ -1,6 +1,6 @@
 export abstract class Interval {
     id: number;
     handler: Function;
-    timeout: number;
+    interval: number;
     arguments: any[];
 }

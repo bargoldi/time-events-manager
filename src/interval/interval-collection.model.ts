@@ -4,9 +4,9 @@ import { Interval } from './interval.model';
 export class IntervalCollection {
 	private _intervalCollection: Interval[] = [];
 
-	public add(handler: any, timeout?: any, ...args: any[]) {
-		let id = originalSetInterval.apply(window, [handler, timeout, args]);
-		this._intervalCollection.push({id, handler, timeout, arguments: args});
+	public add(handler: any, interval?: any, ...args: any[]) {
+		let id = originalSetInterval.apply(window, [handler, interval, args]);
+		this._intervalCollection.push({id, handler, interval, arguments: args});
 
 		return id;
 	}
@@ -33,7 +33,7 @@ export class IntervalCollection {
 		return this._intervalCollection[this._getIntervalIndexById(id)];
 	}
 
-	public clearAll() {
+	public removeAll() {
 		this._intervalCollection.forEach((interval: Interval) => {
 			this.remove(interval.id);
 		});
