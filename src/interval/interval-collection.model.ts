@@ -2,7 +2,7 @@ import { originalClearInterval, originalSetInterval } from '../overrides/overrid
 import { Interval } from './interval.model';
 
 export class IntervalCollection {
-	private _intervalCollection: Interval[];
+	private _intervalCollection: Interval[] = [];
 
 	public add(handler: any, timeout?: any, ...args: any[]) {
 		let id = originalSetInterval.apply(window, [handler, timeout, args]);
