@@ -5,6 +5,15 @@ View and Manage Javascript's timeout and interval collections
 
 ```$ npm install time-events-manager --save```
 
+
+```html
+<script src="../dist/main.min.js"></script>
+```
+
+
+
+
+
 # Usage
 
 ```typescript
@@ -24,6 +33,8 @@ timeoutCollection.getById(myTimeoutId); //Both returning the timeout object crea
 
 timeCollection.remove(myTimeoutId);
 timeCollection.getAll(); // []
+
+```
 
 Basically, you should inject the library script from in place you would like the collection to work on.
 
