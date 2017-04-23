@@ -33,7 +33,7 @@ export class TimeoutCollection {
 		return this._timeoutCollection[this._getTimeoutIndexById(id)];
 	}
 
-	public clearAll() {
+	public removeAll() {
 		this._timeoutCollection.forEach((timeout: Timeout) => {
 			this.remove(timeout.id);
 		});
