@@ -35,8 +35,10 @@ export class TimeoutCollection {
 
 	public removeAll() {
 		this._timeoutCollection.forEach((timeout: Timeout) => {
-			this.remove(timeout.id);
+			originalClearTimeout.apply(window, timeout.id);
 		});
+
+		this._timeoutCollection = [];
 	}
 
 	private _getTimeoutIndexById(timeoutId: number): number {

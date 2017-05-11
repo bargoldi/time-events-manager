@@ -35,8 +35,10 @@ export class IntervalCollection {
 
 	public removeAll() {
 		this._intervalCollection.forEach((interval: Interval) => {
-			this.remove(interval.id);
+			originalClearInterval.apply(window, interval.id);
 		});
+
+		this._intervalCollection = [];
 	}
 
 	private _getIntervalIndexById(intervalId: number): number {
