@@ -12,15 +12,14 @@ View and Manage Javascript's timeout and interval collections
 
 # Usage
 
-```typescript
-
+```javascript
 // creating a timeout
 
 function myFunc(){
     console.log("Hello world");
 }
 
-let myTimeoutId = setTimeout(myFunc, 5000); 
+var myTimeoutId = setTimeout(myFunc, 5000); 
 
 // Managing timeouts via timeoutCollection object
 
