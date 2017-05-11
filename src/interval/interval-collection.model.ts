@@ -6,7 +6,7 @@ export class IntervalCollection {
 
 	public add(handler: any, interval?: any, ...args: any[]) {
 		let id = originalSetInterval.apply(window, [handler, interval, args]);
-		this._intervalCollection.push({id, handler, interval, arguments: args});
+		this._intervalCollection.push({id, handler, interval, arguments: args, timestamp: Date.now()});
 
 		return id;
 	}

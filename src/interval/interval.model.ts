@@ -3,4 +3,5 @@ export abstract class Interval {
     handler: Function;
     interval: number;
     arguments: any[];
+    timestamp: number;
 }

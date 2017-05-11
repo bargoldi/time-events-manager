@@ -3,4 +3,5 @@ export abstract class Timeout {
     handler: Function;
     timeout: number;
     arguments: any[];
+    timestamp: number;
 }
