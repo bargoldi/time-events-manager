@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "lib": [
+      "es6",
+      "dom"
+    ],
+    "module": "commonjs",
+    "target": "es5",
+    "noImplicitAny": false,
+    "suppressImplicitAnyIndexErrors": true,
+    "moduleResolution": "classic",
+    "emitDecoratorMetadata": true,
+    "sourceMap": true,
+    "declaration": true,
+    "removeComments": false,
+    "typeRoots": [
+      "../node_modules/@types"
+    ]
+  },
+  "files": [
+    "interval-collection.spec.ts",
+    "timeout-collection.spec.ts"
+  ]
+}
