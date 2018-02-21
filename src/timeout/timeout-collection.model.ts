@@ -11,13 +11,6 @@ export class TimeoutCollection {
 		return id;
 	}
 
-	private _getWrappedHandler(handler: Function): Function {
-		return (() => {
-			this._timeoutCollection[this._getTimeoutIndexByHandler(handler)].status = TimeoutStatus.Completed;
-			return handler.apply(window);
-		});
-	}
-
 	public remove(id: number): void {
 		let timeoutIndex = this._getTimeoutIndexById(id);
 
@@ -34,13 +27,13 @@ export class TimeoutCollection {
 
 	public getScheduled(): Timeout[] {
 		return this._timeoutCollection.filter((value: Timeout) => {
-			return value.status == TimeoutStatus.Scheduled;
+			return value.status === TimeoutStatus.Scheduled;
 		});
 	}
 
 	public getCompleted(): Timeout[] {
 		return this._timeoutCollection.filter((value: Timeout) => {
-			return value.status == TimeoutStatus.Completed;
+			return value.status === TimeoutStatus.Completed;
 		});
 	}
 
@@ -58,6 +51,14 @@ export class TimeoutCollection {
 		});
 
 		this._timeoutCollection = [];
+	}
+
+	private _getWrappedHandler(handler: Function): Function {
+		return (() => {
+			this._timeoutCollection[this._getTimeoutIndexByHandler(handler)].status = TimeoutStatus.Completed;
+			
+			return handler.apply(window);
+		});
 	}
 
 	private _getTimeoutIndexById(timeoutId: number): number {
