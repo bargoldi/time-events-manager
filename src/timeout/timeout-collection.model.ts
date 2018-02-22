@@ -5,9 +5,11 @@ import { Timeout } from './timeout.model';
 export class TimeoutCollection {
 	private _timeoutCollection: Timeout[] = [];
 
-	public add(handler: any, timeout?: any, ...args: any[]) {
-		let id = originalSetTimeout.apply(window, [this._getWrappedHandler(handler), timeout, args]);
-		this._timeoutCollection.push(new Timeout(id, handler, timeout, args));
+	public add(handler: Function, timeout?: number, ...args: any[]) {
+		let newTimeout = new Timeout(handler, timeout, args);
+		let id = originalSetTimeout.apply(window, [this._getWrappedHandler(newTimeout.uuid, handler), timeout, args]);
+		newTimeout.id = id;
+		this._timeoutCollection.push(newTimeout);
 		return id;
 	}
 
@@ -53,11 +55,11 @@ export class TimeoutCollection {
 		this._timeoutCollection = [];
 	}
 
-	private _getWrappedHandler(handler: Function): Function {
-		return (() => {
-			this._timeoutCollection[this._getTimeoutIndexByHandler(handler)].status = TimeoutStatus.Completed;
-			
-			return handler.apply(window);
+	private _getWrappedHandler(timeoutUuid: string, handler: Function): Function {
+		return ((...args: any[]) => {
+			this._timeoutCollection[this._getTimeoutIndexByUuid(timeoutUuid)].status = TimeoutStatus.Completed;
+
+			return handler.apply(window, args);
 		});
 	}
 
@@ -71,9 +73,9 @@ export class TimeoutCollection {
 		return -1;
 	}
 
-	private _getTimeoutIndexByHandler(handler: Function): number {
+	private _getTimeoutIndexByUuid(uuid: string): number {
 		for (let i = 0; i < this._timeoutCollection.length; i++) {
-			if (this._timeoutCollection[i].handler === handler) {
+			if (this._timeoutCollection[i].uuid === uuid) {
 				return i;
 			}
 		}
