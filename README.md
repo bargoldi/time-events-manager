@@ -26,9 +26,12 @@ var myTimeoutId = setTimeout(myFunc, 5000);
 timeoutCollection.get(0);
 timeoutCollection.getById(myTimeoutId); //Both returning the timeout object created
 
-timeoutCollection.remove(myTimeoutId);
-timeoutCollection.getAll(); // []
+timeoutCollection.getScheduled(); //Returns an array of timeout objects that have not yet executed
+timeoutCollection.getCompleted(); //Returns an array of timeout objects that have been executed
+timeoutCollection.getAll(); //Returns an array of timeout objects
 
+timeoutCollection.remove(myTimeoutId);
+timeoutCollection.removeAll();
 ```
 
 Basically, you should inject the library script from in place you would like the collection to work on.
